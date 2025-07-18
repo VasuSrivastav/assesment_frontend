@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import Toaster from "./Toaster";
 import { getDeviceInfo } from "../utils/deviceInfo";
+import { API_BASE_URL } from "../config/config";
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -119,7 +120,7 @@ const Registration = () => {
     setLoading(true);
     try {
       const deviceInfo = getDeviceInfo();
-      const response = await axios.post("http://localhost:3508/api/register", {
+      const response = await axios.post(`${API_BASE_URL}/api/register`, {
         ...formData,
         deviceInfo,
       });

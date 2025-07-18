@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Toaster from "./Toaster";
+import { API_BASE_URL } from "../config/config";
 
 const CustomerList = () => {
   const [customers, setCustomers] = useState([]);
@@ -17,7 +18,7 @@ const CustomerList = () => {
 
   const fetchCustomers = async () => {
     try {
-      const response = await axios.get("http://localhost:3508/api/allcustomer");
+      const response = await axios.get(`${API_BASE_URL}/api/allcustomer`);
       setCustomers(response.data.data);
     } catch (error) {
       showToast("Failed to fetch customers", "error");
@@ -120,7 +121,8 @@ const CustomerList = () => {
                     {formatDate(customer.date_of_birth)}
                   </p>
                   <p className="break-words">
-                    <span className="font-medium">Address:</span> {customer.address}
+                    <span className="font-medium">Address:</span>{" "}
+                    {customer.address}
                   </p>
                 </div>
 
