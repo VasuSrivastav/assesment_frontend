@@ -213,7 +213,7 @@ const Registration = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <div className="max-w-2xl mx-auto p-3 sm:p-6 bg-white rounded-lg shadow-lg">
       {toast.show && (
         <Toaster
           title={toast.title}
@@ -221,16 +221,11 @@ const Registration = () => {
           onClose={() => setToast({ show: false })}
         />
       )}
-      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+      <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-gray-800">
         Customer Registration Form
       </h2>
-      {errors.submit && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-          {errors.submit}
-        </div>
-      )}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
         <div className="space-y-1">
           <label className="block text-sm font-medium text-gray-700">
             Full Name *
@@ -409,14 +404,14 @@ const Registration = () => {
           <label className="block text-sm font-medium text-gray-700">
             Location *
           </label>
-          <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row gap-2">
             <input
               type="text"
               name="latitude"
               value={formData.latitude}
               readOnly
               placeholder="Latitude"
-              className="flex-1 p-2 border border-gray-300 rounded-md bg-gray-50"
+              className="w-full sm:flex-1 p-2 border border-gray-300 rounded-md bg-gray-50 text-sm"
             />
             <input
               type="text"
@@ -424,12 +419,12 @@ const Registration = () => {
               value={formData.longitude}
               readOnly
               placeholder="Longitude"
-              className="flex-1 p-2 border border-gray-300 rounded-md bg-gray-50"
+              className="w-full sm:flex-1 p-2 border border-gray-300 rounded-md bg-gray-50 text-sm"
             />
             <button
               type="button"
               onClick={handleGetLocation}
-              className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="w-full sm:w-auto px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-sm"
             >
               Get Location
             </button>
@@ -576,6 +571,11 @@ export default Registration;
 //           {loading ? "Registering..." : "Register Customer"}
 //         </button>
 //       </form>
+//     </div>
+//   );
+// };
+
+// export default Registration;
 //     </div>
 //   );
 // };

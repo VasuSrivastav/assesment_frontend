@@ -43,7 +43,7 @@ const CustomerList = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-8">
       {toast.show && (
         <Toaster
           title={toast.title}
@@ -52,7 +52,7 @@ const CustomerList = () => {
         />
       )}
 
-      <h2 className="text-2xl font-bold mb-6 text-gray-800">
+      <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-800">
         Registered Customers
       </h2>
 
@@ -79,19 +79,19 @@ const CustomerList = () => {
           </p>
         </div>
       ) : (
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {customers.map((customer) => (
             <div
               key={customer.id}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-semibold text-gray-800">
+              <div className="p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 break-words">
                     {customer.full_name}
                   </h3>
                   <span
-                    className={`px-2 py-1 rounded text-xs font-medium ${
+                    className={`self-start sm:self-auto px-2 py-1 rounded text-xs font-medium ${
                       customer.device_type === "Desktop"
                         ? "bg-blue-100 text-blue-800"
                         : customer.device_type === "Mobile"
@@ -103,8 +103,8 @@ const CustomerList = () => {
                   </span>
                 </div>
 
-                <div className="space-y-2 text-sm text-gray-600">
-                  <p>
+                <div className="space-y-2 text-xs sm:text-sm text-gray-600">
+                  <p className="break-words">
                     <span className="font-medium">Email:</span> {customer.email}
                   </p>
                   <p>
@@ -119,13 +119,12 @@ const CustomerList = () => {
                     <span className="font-medium">DOB:</span>{" "}
                     {formatDate(customer.date_of_birth)}
                   </p>
-                  <p>
-                    <span className="font-medium">Address:</span>{" "}
-                    {customer.address}
+                  <p className="break-words">
+                    <span className="font-medium">Address:</span> {customer.address}
                   </p>
                 </div>
 
-                <div className="mt-4 pt-4 border-t border-gray-100">
+                <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-100">
                   <div className="text-xs text-gray-500 space-y-1">
                     <p>
                       <span className="font-medium">Browser:</span>{" "}
