@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "./components/NavBar.jsx";
 import Registeration from "./components/Registeration.jsx";
+import CustomerList from "./components/CustomerList.jsx";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <div className="container mx-auto py-8 px-4">
           <Routes>
             <Route path="/register" element={<Registeration />} />
+            <Route path="/customers" element={<CustomerList />} />
             <Route
               path="/"
               element={
